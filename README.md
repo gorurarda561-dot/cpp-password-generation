@@ -1,1 +1,2 @@
 # C++ Şifre Üreticisi
+alarda
