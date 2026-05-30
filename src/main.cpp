@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
 int main (int argc, char *argv[]) {
-    cout << "" << endl;
+    cout << "Toplam argüman sayısı:" << argc << endl;
     return 0;
 }
