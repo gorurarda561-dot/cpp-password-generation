@@ -33,16 +33,11 @@ string sifre_uretici(int karakter_sayısı , string mod) {
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dis(0, karakter_listesi.size() - 1);
-    
 
-    string şifre;
-    int i=0;
-    while (i<karakter_sayısı){
-        int sayı = rand() % 53;
-        cout << sayı << endl;
-        şifre = (karakter_listesi)[sayı];
-        cout << şifre << endl;
-        i++;
+
+    string şifre"";
+    for (int i = 0; i < karakter_sayısı; i++) {
+        şifre += karakter_listesi[dis(gen)];
     
     }
     
