@@ -85,7 +85,7 @@ int main (int argc, char *argv[]) {
     }
 
     for (int i = 0; i < adet; i++) {
-        cout << "sifre " << i + 1 << ": " << sifre_uretici(karakter_sayısı, mod) << endl;
+        cout << "varsayılan sifre " << i + 1 << ": " << sifre_uretici(karakter_sayısı, mod) << endl;
     }
 
     return 0;
