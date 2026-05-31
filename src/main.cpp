@@ -1,12 +1,12 @@
-#include <iostream>
-#include <random>
-#include <cstdlib>
-#include <string>
+#include <iostream> // giriş çıkış işlemleri için
+#include <random> // rastgele sayı üretmek için
+#include <cstdlib> // atoi fonksiyonu için
+#include <string> 
 using namespace std;
 
 
-
-int yardım () {
+ // programı nasıl kullanmamız gerektiği hakkında bilgi veren fonksiyon
+int yardım () {            
     cout << "şifre oluşturucu yardım sayfası:" << endl; 
     cout << "-l --> şifre uzunluğu" << endl;
     cout << "-s --> şifrede kullanılacak karakterler (harf , sayı , sembol , hepsi )" << endl;
@@ -15,26 +15,25 @@ int yardım () {
 }
 
 
- 
-string sifre_uretici(int karakter_sayısı , string mod) {
+  // parametre olarak şifrenin karakter türünü ve çeşidini alan şifre üretici fonksiyonu
+string sifre_uretici(int karakter_sayısı , string mod) {          
     string harfler = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     string sayılar = "0123456789";
     string semboller = "!@#$%^&*()-+";
 
     string karakter_listesi = "";
-
-    if (mod == "harf")   karakter_listesi = harfler;
+ // seçilen moda göre karakter listesini belirleme
+    if (mod == "harf")   karakter_listesi = harfler;        
     else if (mod == "sayı") karakter_listesi = sayılar;
     else if (mod == "sembol") karakter_listesi = semboller;
     else                      karakter_listesi = harfler + sayılar + semboller;
 
-
-    //güvenli rastgele sayı üreticisi
+ //güvenli rastgele sayı üreticisi
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dis(0, karakter_listesi.size() - 1);
 
-
+// şifre oluşturma
     string şifre ="";
     for (int i = 0; i < karakter_sayısı; i++) {
         şifre += karakter_listesi[dis(gen)];
@@ -44,7 +43,7 @@ string sifre_uretici(int karakter_sayısı , string mod) {
     return şifre;
 
 }
-
+// programın ana fonksiyonu, komut satırı argümanlarını işleyerek şifre üretici fonksiyonunu çağırır ve sonuçları ekrana yazdırır
 int main (int argc, char *argv[]) {
 
     int karakter_sayısı = 12;
