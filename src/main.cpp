@@ -47,47 +47,46 @@ string sifre_uretici(int karakter_sayısı , string mod) {
 
 int main (int argc, char *argv[]) {
 
-    int karakter_sayısı = 12; //istediğimiz uzunluk 
-    int adet = 1; //istediğimiz şifre adedi
-    string mod = "hepsi"; //varsayılan karakter seti 
+    int karakter_sayısı = 12;
+    int adet = 1;
+    string mod = "hepsi";
 
-     
-    int argüman = 1; // 0. argüman program adı olduğu için 1 den başlatıyoruz
-    while (argüman<argc) {
+    int argüman = 1;
+    while (argüman < argc) {
         if (string(argv[argüman]) == "--help" || string(argv[argüman]) == "-h") {
-            yardım ();
+            yardım();
             return 0;
         }
-        }
-        if (string(argv[argüman]) == "-l") {
+        else if (string(argv[argüman]) == "-l") {
             if (argüman + 1 >= argc) {
                 cout << "hata: -l'den sonra sayı giriniz" << endl;
                 return 1;
             }
-             karakter_sayısı = stoi(argv[argüman+1]);
-              argüman++;
+            karakter_sayısı = stoi(argv[argüman+1]);
+            argüman++;
+        }
+        else if (string(argv[argüman]) == "-s") {
+            if (argüman + 1 >= argc) {
+                cout << "hata: -s'den sonra karakter türü giriniz" << endl;
+                return 1;
             }
-            else if (string(argv[argüman]) == "-s") {
-                if (argüman + 1 >= argc) {
-                    cout << "hata: -s'den sonra karakter türü giriniz (harf , sayı , sembol , hepsi)" << endl;
-                    return 1;
-                
+            mod = argv[argüman+1];
+            argüman++;
         }
-        mod = argv[argüman+1];
+        else if (string(argv[argüman]) == "-n") {
+            if (argüman + 1 >= argc) {
+                cout << "hata: -n'den sonra sayı giriniz" << endl;
+                return 1;
+            }
+            adet = stoi(argv[argüman+1]);
+            argüman++;
+        }
         argüman++;
     }
-    else if (string(argv[argüman]) == "-n") {
-        if (argüman + 1 >= argc) {
-            cout << "hata: -n'den sonra sayı giriniz" << endl;
-            return 1;
-        }
-        adet = stoi(argv[argüman+1]);
-        argüman++;
-    }
+
     for (int i = 0; i < adet; i++) {
         cout << "sifre " << i + 1 << ": " << sifre_uretici(karakter_sayısı, mod) << endl;
-    
-}
-    return 0;
+    }
 
+    return 0;
 }
