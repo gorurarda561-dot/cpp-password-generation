@@ -35,7 +35,7 @@ string sifre_uretici(int karakter_sayısı , string mod) {
     uniform_int_distribution<> dis(0, karakter_listesi.size() - 1);
 
 
-    string şifre"";
+    string şifre ="";
     for (int i = 0; i < karakter_sayısı; i++) {
         şifre += karakter_listesi[dis(gen)];
     
@@ -48,7 +48,7 @@ string sifre_uretici(int karakter_sayısı , string mod) {
 int main (int argc, char *argv[]) {
 
     int karakter_sayısı = 12; //istediğimiz uzunluk 
-    string adet = "1"; //istediğimiz şifre adedi
+    int adet = 1; //istediğimiz şifre adedi
     string mod = "hepsi"; //varsayılan karakter seti 
 
      
@@ -60,28 +60,28 @@ int main (int argc, char *argv[]) {
         }
         }
         if (string(argv[argüman]) == "-l") {
-            if (argüman + 1 < argc) {
+            if (argüman + 1 >= argc) {
                 cout << "hata: -l'den sonra sayı giriniz" << endl;
                 return 1;
             }
-        {
              karakter_sayısı = stoi(argv[argüman+1]);
               argüman++;
             }
             else if (string(argv[argüman]) == "-s") {
-                if (argüman + 1 < argc) {
+                if (argüman + 1 >= argc) {
                     cout << "hata: -s'den sonra karakter türü giriniz (harf , sayı , sembol , hepsi)" << endl;
                     return 1;
+                
         }
         mod = argv[argüman+1];
         argüman++;
     }
     else if (string(argv[argüman]) == "-n") {
-        if (argüman + 1 < argc) {
+        if (argüman + 1 >= argc) {
             cout << "hata: -n'den sonra sayı giriniz" << endl;
             return 1;
         }
-        adet = argv[argüman+1];
+        adet = stoi(argv[argüman+1]);
         argüman++;
     }
     for (int i = 0; i < adet; i++) {
