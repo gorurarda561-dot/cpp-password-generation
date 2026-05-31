@@ -1,12 +1,16 @@
 #include <iostream>
-using namespace std;
+#include <random>
 #include <cstdlib>
+#include <string>
+using namespace std;
+
 
 
 int yardım () {
     cout << "şifre oluşturucu yardım sayfası:" << endl; 
     cout << "-l --> şifre uzunluğu" << endl;
-    cout << "-s --> şifrede kullanılacak karakterler" << endl;
+    cout << "-s --> şifrede kullanılacak karakterler (harf , sayı , sembol , hepsi )" << endl;
+    cout << "-n --> kaç tane şifre üreteceği" << endl;
     return 0;
 }
 
@@ -19,7 +23,7 @@ string sifre_uretici(int karakter_sayısı) {
     string şifre;
     int i=0;
     while (i<karakter_sayısı){
-        int sayı = rand() % 29;
+        int sayı = rand() % 53;
         cout << sayı << endl;
         şifre = (karakter_listesi)[sayı];
         cout << şifre << endl;
