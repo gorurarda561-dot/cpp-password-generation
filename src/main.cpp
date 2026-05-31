@@ -28,6 +28,13 @@ string sifre_uretici(int karakter_sayısı , string mod) {
     else if (mod == "sembol") karakter_listesi = semboller;
     else                      karakter_listesi = harfler + sayılar + semboller;
 
+
+    //güvenli rastgele sayı üreticisi
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(0, karakter_listesi.size() - 1);
+    
+
     string şifre;
     int i=0;
     while (i<karakter_sayısı){
