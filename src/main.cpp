@@ -16,9 +16,17 @@ int yardım () {
 
 
  
-string sifre_uretici(int karakter_sayısı) {
-    char karakter_listesi[] = {'a' , 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+string sifre_uretici(int karakter_sayısı , string mod) {
+    string harfler = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    string sayılar = "0123456789";
+    string semboller = "!@#$%^&*()-+";
+
+    string karakter_listesi = "";
+
+    if (mod == "harf")   karakter_listesi = harfler;
+    else if (mod == "sayı") karakter_listesi = sayılar;
+    else if (mod == "sembol") karakter_listesi = semboller;
+    else                      karakter_listesi = harfler + sayılar + semboller;
 
     string şifre;
     int i=0;
@@ -55,7 +63,7 @@ int main (int argc, char *argv[]) {
         argüman++;
 
     }
-    string sifre = sifre_uretici(karakter_sayısı);
+    string sifre = sifre_uretici(karakter_sayısı , mod);
     cout << "şifren: \n" << sifre << endl;
     return 0;
 
