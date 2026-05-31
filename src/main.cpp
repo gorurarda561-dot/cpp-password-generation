@@ -30,7 +30,7 @@ string sifre_uretici(int karakter_sayısı , string mod) {
 
  //güvenli rastgele sayı üreticisi
     random_device rd;
-    mt19937 gen(rd());
+    mt19937 gen(rd());                                                   // mt19937 rastgele sayı üretme algoritması
     uniform_int_distribution<> dis(0, karakter_listesi.size() - 1);
 
 // şifre oluşturma
@@ -46,13 +46,14 @@ string sifre_uretici(int karakter_sayısı , string mod) {
 // programın ana fonksiyonu, komut satırı argümanlarını işleyerek şifre üretici fonksiyonunu çağırır ve sonuçları ekrana yazdırır
 int main (int argc, char *argv[]) {
 
+    // varsayılan değerler kullanıcı herhangi bir argüman girmediğinde kullanılacak değerlerdir
     int karakter_sayısı = 12;
     int adet = 1;
     string mod = "hepsi";
 
     int argüman = 1;
     while (argüman < argc) {
-        if (string(argv[argüman]) == "--help" || string(argv[argüman]) == "-h") {
+        if (string(argv[argüman]) == "--help" || string(argv[argüman]) == "-h") {         // kullanıcı yardım seçeneğini seçtiğinde yardım fonksiyonunu çağırır ve programı sonlandırır
             yardım();
             return 0;
         }
